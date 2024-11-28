@@ -11,6 +11,20 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
+    if not email or not password:
+        return jsonify({'error': 'Email or password are required'}), 400
+
+    users_ref = db.collection('users')
+    query = users_ref.where('email', '==', email).stream()
+
+    user_exists = False
+    for user in query:
+        user_exists = True
+        break
+
+    if user_exists:
+        return jsonify({'error': 'User with this email already exists'}), 400
+
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     user_data = {
         'email': email,

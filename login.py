@@ -7,7 +7,7 @@ from firebase import get_user_by_email
 auth_blueprint = Blueprint('auth', __name__)
 SECRET_KEY = "YOUR_SECRET_KEY"
 
-@auth_blueprint.route('/login', methods=['POST'])
+@auth_blueprint.route('/', methods=['POST'])
 def login():
     data = request.get_json()
     email = data.get('email')
@@ -17,8 +17,8 @@ def login():
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
         token = jwt.encode({
             'email': user['email'],
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+            'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)
         }, SECRET_KEY, algorithm="HS256")
         return jsonify({'token': token}), 200
 
-    return jsonify({'message': 'Invalid credentials'}), 401
+    return jsonify({'message': 'Email or Password is Incorrect'}), 401
