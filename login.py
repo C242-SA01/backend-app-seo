@@ -9,6 +9,9 @@ SECRET_KEY = "YOUR_SECRET_KEY"
 
 @auth_blueprint.route('/', methods=['POST'])
 def login():
+    if request.method == 'OPTIONS':
+        return '', 200
+    
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
@@ -19,6 +22,7 @@ def login():
             'email': user['email'],
             'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)
         }, SECRET_KEY, algorithm="HS256")
-        return jsonify({'token': token}), 200
+
+        return jsonify({'token': token, 'first_name': user['first_name']}), 200
 
     return jsonify({'message': 'Email or Password is Incorrect'}), 401
