@@ -1,6 +1,4 @@
-# backend-app-seo
-
-# SEO Audit Optimization Backend v1.0.0 Beta
+# SEO Audit Optimization Backend SEOBizzagi v1.0.0 Beta
 
 Welcome to the **SEO Audit Optimization Backend** version **1.0.0 Beta**. This backend API is designed to streamline and optimize SEO audits by integrating machine learning models to provide comprehensive analysis and actionable insights.
 
@@ -89,7 +87,7 @@ Provides detailed performance metrics, content analysis, and metadata for a holi
 
 3. Start the Flask server:
    ```bash
-   flask run
+   flask app.py
    ```
 
 4. Use tools like Postman or cURL to test the `/audit` endpoint.
@@ -98,7 +96,7 @@ Provides detailed performance metrics, content analysis, and metadata for a holi
 
 ## Contribution
 
-We welcome contributions to enhance the functionality and features of this project. Please follow the [contribution guidelines](CONTRIBUTING.md).
+We welcome contributions that enhance this project's functionality and features. Please follow the [contribution guidelines](CONTRIBUTING.md).
 
 ---
 
