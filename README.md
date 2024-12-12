@@ -77,7 +77,7 @@ Provides detailed performance metrics, content analysis, and metadata for a holi
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/seo-audit-optimization.git
+   git clone https://github.com/C242-SA01/backend-model.git
    ```
 
 2. Install the required dependencies:
