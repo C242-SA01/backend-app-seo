@@ -87,7 +87,7 @@ Provides detailed performance metrics, content analysis, and metadata for a holi
 
 3. Start the Flask server:
    ```bash
-   flask app.py
+   python app.py
    ```
 
 4. Use tools like Postman or cURL to test the `/audit` endpoint.
